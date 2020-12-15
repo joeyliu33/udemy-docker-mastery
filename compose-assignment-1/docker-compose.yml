@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  drupal:
+    image: drupal:8.8.2
+    ports:
+      - "8080:80"
+    volumes:
+      - durpal-modules:/var/www/html/modules
+      - durpal-profiles:/var/www/html/profiles
+      - durpal-themes:/var/www/html/themes
+      - durpal-sites:/var/www/html/sites
+
+  postgres:
+    image: postgres:12.1
+    environment:
+      - POSTGRES_PASSWORD=secret
+
+volumes:
+  durpal-modules:
+  durpal-profiles:
+  durpal-themes:
+  durpal-sites:
